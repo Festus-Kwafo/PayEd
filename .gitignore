@@ -1,0 +1,6 @@
+src/venv
+src/node_modules
+src/dist
+.vscode
+src/core/.env
+db.sqlite3
