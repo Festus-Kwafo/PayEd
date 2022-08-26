@@ -1,0 +1,39 @@
+{
+  "name": "payed",
+  "version": "1.0.0",
+  "description": "PayEd is a digital payment solution for students as well as an ERP for the management of digital payment collections for students or members of academic institutions and the entities respectively.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --config ./webpack.dev.js --watch",
+    "build": "webpack --config ./webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Festus-Kwafo/PayEd.git"
+  },
+  "author": "Festus-Kwafo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Festus-Kwafo/PayEd/issues"
+  },
+  "homepage": "https://github.com/Festus-Kwafo/PayEd#readme",
+  "devDependencies": {
+    "bootstrap": "^5.2.0",
+    "bootstrap-icons": "^1.9.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "loader": "^2.1.1",
+    "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^7.0.1",
+    "sass": "^1.54.5",
+    "sass-graph": "^4.0.0",
+    "sass-loader": "^13.0.2",
+    "scss-tokenizer": "^0.4.3",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
