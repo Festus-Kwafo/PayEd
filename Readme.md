@@ -14,11 +14,11 @@ PayEd is a digital payment solution for students as well as an ERP for the manag
 Clone this repository and open it in an editor.
 
 ```bash
-git clone https://github.com/Festus-Kwafo/CLC-WebApp.git
+git clone https://github.com/Festus-Kwafo/PayEd.git
 ```
 
 ```bash
-cd CLC-WebApp/src
+cd PayEd/src
 
 py -m venv venv
 call venv/scripts/activate
