@@ -1,0 +1,92 @@
+{% extends '../../dist/templates/dashboard/base2.html' %}
+ {% block page_title%}PayEd{% endblock %} 
+ {% load static %} {% block content %}
+ <section id="payment">
+    <div class="container  mt-4">
+        <h2 class="text-center">KNUST Online Transaction</h2>
+        <div class="row mt-4">
+            <div class="col-lg-6" >
+                <div class="card avatar w-75 border-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="{%static 'images/profile.png'%}" alt="avatar" class="rounded-circle img-fluid " style="width: 90px"/>
+                            </div>
+                            <div class="col-lg-9 py-2">
+                                <span class="title">Adwoa Mensah, 105894, KNUST, 2022/2023 Fees</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-75 mt-4">
+                    <div class="row ">
+                        <div class="col-sm-9 py-2">
+                          <span class="fee_details font-14">School Fees Summary</span>
+                        </div>
+                        <div class="col-sm-3"></div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-8">
+                          <p class="">Student Charges</p>
+                        </div>
+                        <div class="col-sm-4">
+                          <p class="float-end">GHC 1029.2</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-8">
+                          <p class="mb-0">Academic Facility User Fee</p>
+                        </div>
+                        <div class="col-sm-4">
+                          <p class="float-end">GHC 408.57</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-8">
+                          <p class="mb-0">Additional Charges</p>
+                        </div>
+                        <div class="col-sm-4">
+                          <p class="float-end">GHC 315.00</p>
+                        </div>
+                      </div>
+                      <div class="row total mt-3">
+                        <div class="col-sm-4 py-2">
+                          <span class="mb-0">Total Amount</span>
+                        </div>
+                        <div class="col-sm-8 py-2">
+                          <span class="float-end"> GHC 1752.77 </span>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="col-lg-6 ">
+                <div class=""> <span class="text-muted" >PAY WITH MOMO</span> </div>
+                <div class="card border-0 momo-card">
+                    <div class="card-body">
+                        <div class="row" class="form-check-label" for="flexRadioDefault1">
+                            <div class="col-lg-1 py-4">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            </div>
+                            <div class="col-lg-3">
+                                <img src="{%static 'images/momo.svg'%}" alt="avatar" class="img-fluid " style="width: 70px"/>
+                            </div>
+                            <div class="col-lg-8 py-4">
+                                <span class=" float-end font-14">MTN Mobile Money</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                
+              
+          </div>
+          <div class="mt-4">
+          <div class="float-end pt-4">
+            <button type="submit" class="btn btn-cancel">CANCEL</button>
+            <button type="submit" class="btn btn-primary">PROCEED</button>
+          </div>
+        </div>
+    </div>
+ </section>
+ {%endblock%}

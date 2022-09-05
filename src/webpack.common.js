@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+var webpack = require("webpack");
 
 module.exports = {
     entry: {
@@ -12,13 +13,13 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
     },
     plugins: [
-        // new HtmlWebpackPlugin({
-        //     template:
-        //         "./templates/pages/base.html",
-        //     filename: "templates/pages/base.html",
-        //     publicPath: "/static/",
-        //     inject: "body"
-        // }),
+        new HtmlWebpackPlugin({
+            template:
+                "./templates/dashboard/base2.html",
+            filename: "templates/dashboard/base2.html",
+            publicPath: "/static/",
+            inject: "body"
+        }),
         new HtmlWebpackPlugin({
             template:
                 "./templates/dashboard/base.html",
@@ -26,6 +27,17 @@ module.exports = {
             publicPath: "/static/",
             inject: "body"
         }),
+        new HtmlWebpackPlugin({
+            template:
+                "./templates/dashboard/base3.html",
+            filename: "templates/dashboard/base3.html",
+            publicPath: "/static/",
+            inject: "body"
+        }),
         new CleanWebpackPlugin(),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }), 
     ],
 }

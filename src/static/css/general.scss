@@ -1,0 +1,203 @@
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-height: 100%;
+  font-family: 'Public Sans', sans-serif;
+  height: 100%; 
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  background-color: $slate;
+  }
+/*--------------------------------------------------------------
+# Navbar
+--------------------------------------------------------------*/
+.logo img{
+    width: 10em;
+    height: 3em;
+  }
+  
+  .navbar-default {
+      font-family: "Inter", sans-serif;
+      //transition: all 0.5s ease-in-out;
+      background-color: #ffffff00;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      // -webkit-backface-visibility: hidden;
+      // backface-visibility: hidden;
+      //box-shadow: 1px 2px 15px rgba(32, 32, 32, 0.3);
+    }
+  .navbar-default1 {
+      font-family: "Inter", sans-serif;
+      transition: all 0.5s ease-in-out;
+      background-color: $slate;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      //box-shadow: 1px 2px 15px rgba(32, 32, 32, 0.3);
+    }
+
+    .navbar-default1.navbar-reduce {
+      box-shadow: 1px 2px 15px rgba(100, 100, 100, 0.3);
+    }
+  .nav-pad{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+.splash{
+    background-color: $primary;
+    height: 100vh;
+    img{
+      margin-top: 3rem;
+    }
+    .splash-text{
+      margin: 0 5rem;
+    }
+}
+
+.login{
+    background-color: $secondary;
+    height: 100vh;
+    .heading{
+      margin-top: 10rem;
+      color: $primary;
+    }
+    p{
+      margin: 1rem 10rem;
+    }
+    .input{
+      margin: 1rem 10rem;
+    }
+    label{
+      font-weight: 600 ;
+    }
+
+.iti__flag {background-image: url("intl-tel-input/build/img/flags.png");}
+}
+  
+.intl-tel-input,
+.iti{
+  width: 100%;
+  
+}
+
+.wrapper .otp-input input{
+  width: 14%;
+  height: 3em;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 600;
+
+}
+
+#service{
+  margin-top: 10rem;
+  label{
+    font-weight: 600 ; 
+  }
+}
+.w-90{
+  width: 90%;
+}
+
+#transaction{
+  margin-top: 6em;
+}
+
+.fee_details{
+  color: $primary;
+  font-weight: 400;
+}
+.total{
+  background-color: rgba(0, 82, 180, 0.03);
+  font-weight: 600;
+}
+
+.btn-cancel{
+  background-color: #000;
+  color: $white;
+}
+.topic{
+  color: $primary;
+
+}
+.profile-card{
+  p{
+    font-weight: 600
+  }
+}
+#payment{
+  margin-top: 6rem;
+  .title{
+    font-weight: 500;
+  }
+  .avatar{
+    background-color: #fff;
+  }
+  .momo-card{
+    background-color: #f0f0f0;
+  }
+}
+
+.bi-exclamation-circle-fill{
+  color: $primary;
+  font-size: 2em;
+}
+.alert-box{
+  background-color: rgba(0, 82, 180, 0.06);
+}
+#confirm_payment{
+  margin-top: 6rem;
+  input{
+    border: none;
+    background-color: transparent;
+
+  }
+  .border-b{
+    border-bottom: 0.1em solid #D0D0D0;
+  }
+  i{
+    font-size: 1.4em;
+  }
+}
+.btn-print{
+  background-color: #D0D0D0;
+}
+.modal{
+  a{
+    color: $primary;
+  }
+}
+
+#transaction_reciept{
+  margin-top: 6em;
+}
+.success{
+  background-color: rgb(0, 128, 0, 0.17);
+  color: #045F04;
+  font-weight: 500;
+}
+.success:hover{
+  background-color: rgb(0, 128, 0, 0.17);
+}
+.failed{
+  background-color: rgb(254, 0, 0, 0.17);
+  color: #D80027;
+  font-weight: 500;
+}
+.failed:hover{
+  background-color: rgb(254, 0, 0, 0.17);
+}
+
+.trans_links{
+  a{
+    text-decoration: none;
+  }
+}
+
+.overflow{
+  overflow: auto;
+}

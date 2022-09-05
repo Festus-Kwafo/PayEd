@@ -1,0 +1,145 @@
+{% extends '../../dist/templates/dashboard/base2.html' %} {% block page_title%}PayEd{% endblock %} {% load static %} {% block content %}
+<!-- Button trigger modal -->
+
+
+<!-- Modal Payment Processing -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <div class="spinner-border my-3 text-primary " style="width: 5rem; height: 5rem;" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div><span class="font-14">Follow the prompt on your phone to complete payment</span></div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal">Approved</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Payment Ends -->
+
+<!-- Confirmation Modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="success-animation text-center">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+        </div>
+      <h5 class="modal-title text-center my-3" id="exampleModalLabel">PAYMENT SUCCESSFUL</h5>
+      <div class="modal-body mx-5">
+        <p>Date: <strong>Aug 8, 2022, 10:54:28 AM</strong> </p>
+        <p>Payment Reference:<strong>Adwoa Mensah, 105894, KNUST, 2022/2023 Fees</strong> </p>
+        <p>Reciept Number:<strong> 24558995789</strong> </p>
+        <p>Transaction ID:<strong> _f2usNYKcv</strong> </p>
+        <p>Payment Channel: <strong>MTN Money</strong> </p>
+        <p>Payment Channel Ref:<strong> 520000004067</strong> </p>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary btn-print" data-bs-dismiss="modal">Print</button>
+        <button type="button" class="btn btn-primary">Complete</button>
+        
+      </div>
+      <a href="" class="my-3 text-center">View your transactions</a>
+    </div>
+  </div>
+</div>
+<!-- Confirmation Modal Ends -->
+
+<section id="confirm_payment">
+  <div class="container mt-4">
+    <h2 class="text-center">KNUST Online Transaction</h2>
+    <div class="row mt-4">
+      <div class="col-lg-6">
+        <div class="card avatar w-75 border-0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-3">
+                <img
+                  src="{%static 'images/profile.png'%}"
+                  alt="avatar"
+                  class="rounded-circle img-fluid"
+                  style="width: 90px"
+                />
+              </div>
+              <div class="col-lg-9 py-2">
+                <span class="title"
+                  >Adwoa Mensah, 105894, KNUST, 2022/2023 Fees</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-75 mt-4">
+
+          <div class="row total mt-3">
+            <div class="col-sm-4 py-2">
+              <span class="mb-0">Total Amount</span>
+            </div>
+            <div class="col-sm-8 py-2">
+              <span class="float-end"> GHC 1752.77 </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+            <div class="row w-90">
+              <div class="col-lg-8 py-4">
+                <span class="float-start font-14">MTN Mobile Money</span>
+              </div>
+              <div class="col-lg-4">
+                <img
+                  src="{%static 'images/momo.svg'%}"
+                  alt="avatar"
+                  class="img-fluid float-end"
+                  style="width: 70px"
+                />
+              </div>
+            </div>
+            <div class="row w-90 alert-box mt-3 py-3 text-center">
+              <div class="col-sm-2">
+                <p class="mb-0 text-center py-3 "><i class="bi bi-exclamation-circle-fill"></i></p>
+              </div>
+              <div class="col-sm-10">
+                <span class="text-center py-3">You need to have at least GHC 1752.77 in your wallet</span>
+              </div>
+            </div>
+            <div class="row w-90 alert-box mt-3">
+              
+                <div class="input-group mt-3">
+                  <span class="input-group-text border-b" id="basic-addon1"><i class="bi bi-telephone"></i></span>
+                  <input type="text" class="form-control border-b" placeholder="Mobile Money Number" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope"></i></span>
+                  <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                </div>
+
+                
+
+            </div>
+            <div class="row w-90 mt-3">
+              <div class="mt-4">
+                <button type="" class="btn btn-primary ms-2 float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">PAY</button>
+                <button type="submit" class="btn btn-cancel  float-end">BACK</button>
+            </div>
+            </div>
+          
+      </div>
+    </div>
+    <div class="mobile-money-qr-payment"
+    data-api-user-id="b12d7b22-3057-4c8e-ad50-63904171d18c"
+    data-amount="10"
+    data-currency="EUR"
+    data-external-id="Receipt-2112">
+  </div>
+
+  </div>
+  https://widget.northeurope.cloudapp.azure.com:9443/demo.html;
+</section>
+
+{%endblock%}
