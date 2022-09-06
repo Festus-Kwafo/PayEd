@@ -15,12 +15,37 @@ class IndexView(View):
         if request.method == "POST":
             print("Yess")
             number = request.POST.get('phoneNumber')
-            otp_number = random.randint(0, 9999)
-            print(type(number))
-            print(type(str(otp_number)))
-            send_otp_sms(number, str(otp_number))
-            return render(request, 'templates/dashboard/otp.html')
+            otp_number = random.randint(100001, 999999)
+            print(number)
+            print(otp_number)
+            #send_otp_sms(number, str(otp_number))
+            return redirect('dashboard:verification')
+
         return redirect('dashboard:service')
+
+class OTPVerification(View):
+    template_name = 'templates/dashboard/otp.html'
+
+    def get(self, request):
+
+        return render(request, self.template_name)
+        
+    def post(self, request):
+        otp_array = []
+        otp_input = ''
+        if request.method == "POST":
+            otp1 = request.POST.get('otp1') 
+            otp2 = request.POST.get('otp2') 
+            otp3 = request.POST.get('otp3') 
+            otp4 = request.POST.get('otp4') 
+            otp5 = request.POST.get('otp5') 
+            otp6 = request.POST.get('otp6')
+            otp_array.extend((otp1, otp2, otp3, otp4, otp5, otp6)) 
+            
+            for i in range(len(otp_array)):
+                otp_input.join(otp_array[i])
+            print(otp_input)
+            return redirect('dashboard:service')
 
 class ServiceView(View):
     template_name = 'templates/dashboard/forms.html'
@@ -29,7 +54,7 @@ class ServiceView(View):
         return render(request, self.template_name)
     
     def post(self, request):
-        return redirect('dashboard:')
+        return redirect('dashboard:transaction')
 
 class TransactionView(View):
     template_name = "templates/dashboard/transaction.html"

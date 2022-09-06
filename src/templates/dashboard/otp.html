@@ -20,6 +20,7 @@
         </div>
         <div class="wrapper mt-5">  
             <form action="" method="post">
+                {% csrf_token %}
              <div class="input otp-input">
                  <label class="my-2" for="phoneNumber">Enter six -digit code sent to your number</label>
                  <div class="d-flex align-items-center justify-content-between">
