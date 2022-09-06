@@ -32,7 +32,6 @@ class OTPVerification(View):
         
     def post(self, request):
         otp_array = []
-        otp_input = ''
         if request.method == "POST":
             otp1 = request.POST.get('otp1') 
             otp2 = request.POST.get('otp2') 
@@ -40,11 +39,7 @@ class OTPVerification(View):
             otp4 = request.POST.get('otp4') 
             otp5 = request.POST.get('otp5') 
             otp6 = request.POST.get('otp6')
-            otp_array.extend((otp1, otp2, otp3, otp4, otp5, otp6)) 
-            
-            for i in range(len(otp_array)):
-                otp_input.join(otp_array[i])
-            print(otp_input)
+            otp_input = f'{otp1}{otp2}{otp3}{otp4}{otp5}{otp6}'
             return redirect('dashboard:service')
 
 class ServiceView(View):

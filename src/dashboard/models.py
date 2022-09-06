@@ -12,7 +12,7 @@ class Sms(models.Model):
     success = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    otp_verifaction = models.CharField(max_length=4)
+    otp_number = models.CharField(max_length=6)
     verified = models.BooleanField(default=False)
 
     class Meta:
