@@ -1,0 +1,64 @@
+{% extends '../../dist/templates/dashboard/base2.html' %} {% block page_title%}PayEd{% endblock %} {% load static %} {% block content %}
+<section id="transaction">
+  <section>
+    <div class="container py-2">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card w-75 my-5">
+            <div class="card-body profile-card">
+              <div class="text-center">
+                <h4 class="topic my-4">Student Profile</h4>
+                <img src="{%static 'images/profile.png'%}" alt="avatar" class="rounded-circle img-fluid mb-4" style="width: 150px"/>
+              </div>
+              <p class="">Name: Adwoa Mensah</p>
+              <p class="">Program: Computer Engineering</p>
+              <p class="">Level: 200</p>
+              <p class="">Student ID: 105894</p>
+              <p class="">Academic Year: 2022/2023</p>
+              <div class="d-flex justify-content-center mb-2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <h2 class="mb-3">KNUST Online Transaction</h2>
+          <div class="card mb-4 border-0 bg-secondary">
+            <!-- Fees Details -->
+            <div class="card-body">
+              <div class="row bg-primary">
+                <div class="col-sm-4 py-2">
+                  <span class="text-white font-14">School Fees</span>
+                </div>
+                <div class="col-sm-8"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4 py-3">
+                  <span class="fee_details font-14">Transaction Details</span>
+                </div>
+                <div class="col-sm-8"></div>
+              </div>
+              <div class="row total">
+                <div class="col-sm-4 py-2">
+                  <span class="mb-0">Amount</span>
+                </div>
+                <div class="col-sm-8 py-2">
+                  <span class="float-end"> GHC 1752.77 </span>
+                </div>
+              </div>
+              <!-- End Fee Details -->
+              <div class="row mt-4">
+                <form action="" method="post">
+                <div class="float-end pt-4">
+                  <button type="submit" class="btn btn-cancel">CANCEL</button>
+                <button type="submit" class="btn btn-primary">PAY NOW</button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+{%endblock%}

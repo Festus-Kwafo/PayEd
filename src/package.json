@@ -25,6 +25,8 @@
     "css-minimizer-webpack-plugin": "^4.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "intl-tel-input": "^17.0.18",
+    "jquery": "^3.6.1",
     "loader": "^2.1.1",
     "mini-css-extract-plugin": "^2.6.1",
     "node-sass": "^7.0.1",

@@ -1,0 +1,55 @@
+{% extends '../../dist/templates/dashboard/base2.html' %}
+{% block page_title %}PayEd{% endblock %}
+{% load static %}
+
+{% block content %}
+<section id="service">
+        <div class="container m-auto">
+            <h3>Welcome, How can we help you today?</h3>
+            <form action="" method="post">
+                <div class="form-group mt-5">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="">Select what you want to do</label>
+                            <select class="form-select w-90" aria-label="Default select example">
+                                <option selected>None Selected</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="">Select School Category</label>
+                            <select class="form-select w-90" aria-label="Default select example">
+                                <option selected>Tertiary</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>   
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-4">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="">Select School</label>
+                            <select class="form-select w-90" aria-label="Default select example">
+                                <option selected>KNUST</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="">Student ID Number</label>
+                            <input type="text" class="form-control w-90" name="indexnumber" id="">
+                        </div>
+                    </div>
+                </div>
+                <button class=" btn btn-primary float-end my-5">Submit</button>
+            </form>
+        </div>
+</section>
+
+{%endblock%}

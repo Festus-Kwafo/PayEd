@@ -12,29 +12,39 @@
     <link rel="manifest" href="{%static 'images/favicon_io/site.webmanifest'%}">
     <title>{% block page_title %}{% endblock %}</title>
 </head>
-<body>
+<body class="overflow dashboard">
   <!-- ======= Header/Navbar ======= -->
-  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-default1 navbar-trans navbar-expand-lg fixed-top nav-pad">
     <div class="container">
       <a class="logo" href="">
-        <img src="{%static 'images/logo/logoPayED.svg' %}" alt="logo">
+        <img src="{%static 'images/logo/logoPayED2.svg' %}" alt="logo">
       </a>
+      <p class="text-dark pt-2 ms-3 school">KNUST</p>
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
       </div>
-      <!-- Select Country -->
+      <!-- Profile -->
     </div>
     <div class="collapse navbar-collapse" >
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="{%static 'images/flags/ukflag.webp'%}"  width='20' height='15' alt=""> <span style="color: #0052B4 ;">GB</span> 
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#"><img src="{%static 'images/flags/usaflag.svg'%}"  width='20' height='15' alt=""></a></li>
-            <li><a class="dropdown-item" href="#"><img src="{%static 'images/flags/ghanaflag.png'%}"  width='20' height='15' alt=""></a></li>
-          </ul>
-        </li>
-      </ul>
+        <div class="pe-3 border-end">
+            <i class="bi bi-bell position-relative">
+                <span class="position-absolute top-0 start-100 translate-middle bg-danger border border-light rounded-circle">
+                    <span class="visually-hidden">New alerts</span>
+                </span>
+            </i>
+        </div>
+        <div class="profile row ms-3">
+            <div class="col-4">
+                <img src="{%static 'images/profile.png'%}" alt="avatar" class="rounded-circle img-fluid py-3" style="width: 40px"/>
+            </div>
+
+            <div class="col-8">
+                <div class="row py-2">
+                    <span>KNUST</span>
+                    <span class="font-12">Owner</span>
+                </div>
+            </div>
+
+        </div>
     </div>
   </nav>
   <!-- End Header/Navbar -->

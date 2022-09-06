@@ -1,0 +1,127 @@
+{% extends '../../dist/templates/dashboard/base2.html' %} {% block page_title%}PayEd{% endblock %} {% load static %} {% block content %}
+<section id="transaction_reciept">
+  <section>
+    <div class="container py-2">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card w-75 my-5">
+            <div class="card-body profile-card">
+              <div class="text-center">
+                <h4 class="topic my-4">Student Profile</h4>
+                <img src="{%static 'images/profile.png'%}" alt="avatar" class="rounded-circle img-fluid mb-4" style="width: 150px"/>
+              </div>
+              <p class="">Name: Adwoa Mensah</p>
+              <p class="">Program: Computer Engineering</p>
+              <p class="">Level: 200</p>
+              <p class="">Student ID: 105894</p>
+              <p class="">Academic Year: 2022/2023</p>
+              <div class="d-flex justify-content-center mb-2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card mb-4 border-0 bg-secondary">
+            <!-- Transaction Details -->
+            <div class="card-body">
+              <div class="row bg-primary">
+                <div class="col-sm-8 py-2">
+                  <span class="text-white font-14">TRANSACTION HISTORY</span>
+                </div>
+                <div class="col-sm-4"></div>
+              </div>
+              <div class="row">
+                <div class="card mt-5">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <p class="">KNUST 2022/2023 School Fees Payment</p>
+                        <p class="">Date: Aug 8, 2022, 10:54:28 AM</p>
+                        <p class="">Transaction ID: _f2usNYKcv</p>
+                      </div>
+                      <div class="col-sm-4">                      
+                        <div class="row trans_links">
+                        <div><button class="btn float-end success border-0">Successful</button></div> 
+                        <div><a href="#" class="float-end mt-2"><i class="bi bi-cloud-arrow-down py-2"></i> <span class="py-2"></span> Download Receipt</a></div>  
+                      </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="row total">
+                    <div class="col-sm-4 py-2">
+                      <span class="mb-0">Total Amount</span>
+                    </div>
+                    <div class="col-sm-8 py-2">
+                      <span class="float-end"> GHC 1752.77 </span>
+                    </div>
+                  </div>
+                  </div>
+                  <!-- End Fee Details -->
+
+                  <!-- Transaction Details -->
+                <div class="card mt-5">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <p class="">KNUST 2022/2023 School Fees Payment</p>
+                        <p class="">Date: Aug 8, 2022, 10:54:28 AM</p>
+                        <p class="">Transaction ID: _f2usNYKcv</p>
+                      </div>
+                      <div class="col-sm-4">                      
+                        <div class="row trans_links">
+                        <div><button class="btn float-end failed border-0">Failed</button></div> 
+                        <div><a href="#" class="float-end mt-2"><i class="bi bi-cloud-arrow-down py-2"></i> <span class="py-2"></span> Download Receipt</a></div>  
+                      </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="row total">
+                    <div class="col-sm-4 py-2">
+                      <span class="mb-0">Total Amount</span>
+                    </div>
+                    <div class="col-sm-8 py-2">
+                      <span class="float-end"> GHC 1752.77 </span>
+                    </div>
+                  </div>
+                  </div>
+                  <!-- End Fee Details -->
+                  
+                  <!-- Transaction Details -->
+                <div class="card mt-5">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <p class="">KNUST 2022/2023 School Fees Payment</p>
+                        <p class="">Date: Aug 8, 2022, 10:54:28 AM</p>
+                        <p class="">Transaction ID: _f2usNYKcv</p>
+                      </div>
+                      <div class="col-sm-4">                      
+                        <div class="row trans_links">
+                        <div><button class="btn float-end success border-0">Successful</button></div> 
+                        <div><a href="#" class="float-end mt-2"><i class="bi bi-cloud-arrow-down py-2"></i> <span class="py-2"></span> Download Receipt</a></div>  
+                      </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="row total">
+                    <div class="col-sm-4 py-2">
+                      <span class="mb-0">Total Amount</span>
+                    </div>
+                    <div class="col-sm-8 py-2">
+                      <span class="float-end"> GHC 1752.77 </span>
+                    </div>
+                  </div>
+                  </div>
+                  <!-- End Fee Details -->
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+{%endblock%}
