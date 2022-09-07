@@ -1,5 +1,6 @@
 from pathlib import Path
 import environ 
+from django.contrib.messages import constants as messages
 
 env = environ.Env()
 environ.Env.read_env()
@@ -17,7 +18,7 @@ SECRET_KEY = 'django-insecure-sy*1ng!l@3m_&p5pl2(_@#pfviy-ah18m6arz#8n5_7q@%9zn%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -29,6 +30,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #created_app
+    'dashboard.apps.DashboardConfig'
+    
 ]
 
 MIDDLEWARE = [
@@ -105,6 +110,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -115,6 +122,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "dist",
     BASE_DIR / "static",
 ]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -122,3 +130,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #API KEY
 SMS_APIKEY = env('SMS_APIKEY')
+
+#Messages tags
+MESSAGE_TAGS = {
+    messages.WARNING: 'danger',
+    50: 'critical',
+}

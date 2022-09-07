@@ -19,17 +19,19 @@
             <p>Completed a transaction before? Login to access your transaction history.</p>
         </div>
         <div class="wrapper mt-5">  
+            {% include '../../templates/includes/alerts.html' %}
             <form action="" method="post">
+                <input type="text" id="1" class="form-control" name="number" maxlength="1" value={{number}} hidden> 
                 {% csrf_token %}
              <div class="input otp-input">
-                 <label class="my-2" for="phoneNumber">Enter six -digit code sent to your number</label>
+                <label class="my-2" for="phoneNumber">Enter six -digit code sent to your number</label>
                  <div class="d-flex align-items-center justify-content-between">
-                 <input type="text" id="1" class="form-control" name="otp1" maxlength="1">
-                 <input type="text" id="2" class="form-control" name="otp2" maxlength="1">
-                 <input type="text" id="3" class="form-control"  name="otp3" maxlength="1">
-                 <input type="text" id="4" class="form-control" name="otp4" maxlength="1">
-                 <input type="text" id="5" class="form-control"  name="otp5"maxlength="1">
-                 <input type="text" id="6" class="form-control" name="otp6" maxlength="1">
+                 <input type="text" id="1" class="form-control" name="otp1" maxlength="1" required>
+                 <input type="text" id="2" class="form-control" name="otp2" maxlength="1" required>
+                 <input type="text" id="3" class="form-control"  name="otp3" maxlength="1" required>
+                 <input type="text" id="4" class="form-control" name="otp4" maxlength="1" required>
+                 <input type="text" id="5" class="form-control"  name="otp5"maxlength="1" required>
+                 <input type="text" id="6" class="form-control" name="otp6" maxlength="1" required>
                  </div>
                  <button class=" btn btn-primary float-end my-3">Submit</button>
                  
@@ -38,7 +40,7 @@
          </div>
  
          <div class="text-center mt-5 pt-3">
-             <p>Didn't get the code? <a href="#" style="text-decoration: none;">Resend</a></p> 
+             <p>Didn't get the code? <a href="" style="text-decoration: none;">Resend</a></p> 
          </div>
     </div>
     </div>

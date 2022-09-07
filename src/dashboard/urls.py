@@ -10,6 +10,6 @@ urlpatterns = [
     path('confirmation', views.ConfirmationView.as_view(), name="confirmation"),
     path('history', views.TransactionHistoryView.as_view(), name="history"),
     path('dashboard', views.DashboardView.as_view(), name="dashboard"),
-    path('verification', views.OTPVerification.as_view(), name="verification"),
+    path('verification/<str:number>/', views.OTPVerification.as_view(), name="verification"),
 ]
 
