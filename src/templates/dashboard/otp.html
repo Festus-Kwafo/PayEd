@@ -33,14 +33,13 @@
                  <input type="text" id="5" class="form-control"  name="otp5"maxlength="1" required>
                  <input type="text" id="6" class="form-control" name="otp6" maxlength="1" required>
                  </div>
-                 <button class=" btn btn-primary float-end my-3">Submit</button>
-                 
+                 <button class=" btn btn-primary float-end my-3">Submit</button>  
              </div>
             </form>       
          </div>
  
          <div class="text-center mt-5 pt-3">
-             <p>Didn't get the code? <a href="" style="text-decoration: none;">Resend</a></p> 
+             <p>Didn't get the code? <a href="{%url 'dashboard:resendOTP' number %}" style="text-decoration: none;">Resend</a></p> 
          </div>
     </div>
     </div>

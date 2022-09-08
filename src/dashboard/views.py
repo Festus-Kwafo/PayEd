@@ -1,5 +1,3 @@
-from multiprocessing import context
-import re
 from django.shortcuts import render, redirect 
 from django.views import View
 from django.urls import reverse
@@ -20,22 +18,23 @@ class IndexView(View):
 
     def post(self, request):
         forms = SmsForm(request.POST)
-        # if request.method == "POST":
-        sms_model = Sms()       
+             
         if forms.is_valid():
             otp_number = random.randint(100001, 999999)
             number = request.POST.get('number')
-            print(number)
+            
             is_number_exists = Sms.objects.filter(number=number).exists()
             if is_number_exists:
                 sms_number = Sms.objects.filter(number=number).update(otp_number=otp_number)
-                #send sms to valid number
             else:
                 sms_number = Sms.objects.create(
                     number = number,
                     otp_number = otp_number
                 )
-            #send_otp_sms(number, str(otp_number))
+            response = send_otp_sms(number, str(otp_number))
+            sms_model = Sms.objects.get(number= number)
+            sms_model.status_message = response['message']
+            sms_model.save()
             context = {
                 'number': number
             }
@@ -68,15 +67,31 @@ class OTPVerification(View):
         otp4 = request.POST.get('otp4') 
         otp5 = request.POST.get('otp5') 
         otp6 = request.POST.get('otp6')
-        print(sms_verify.otp_number)
+
+
+        #Compare otp entered by user to the OTP sent to the user and verify the user
         otp_input = f'{otp1}{otp2}{otp3}{otp4}{otp5}{otp6}'
         if sms_verify.otp_number == otp_input.strip():
-            print("True")
+            sms_verify.verified = True
+
+            sms_verify.save()
             return redirect('dashboard:service')
         else:
             messages.warning(request, "OTP does not match")
             return HttpResponseRedirect(reverse('dashboard:verification', kwargs={'number': self.kwargs['number']}))
-        
+ 
+ #resend OTP function       
+def resend_OTP(request, **kwargs):
+    number = kwargs.get('number')
+    otp_number = random.randint(100001, 999999)
+    Sms.objects.get(number = number).update(otp_number=otp_number)
+    response = send_otp_sms(number, str(otp_number))
+    if response['status'] == 'status':
+        messages.success(request, "OTP Sent successfully")
+        return HttpResponseRedirect(reverse('dashboard:verification', kwargs={'number': kwargs['number']}))
+    else:
+        messages.warning(request, "Error Sending sending OTP. Try again later")
+        return redirect('dashboard:home')
 
 class ServiceView(View):
     template_name = 'templates/dashboard/forms.html'
