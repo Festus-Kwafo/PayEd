@@ -1,3 +1,4 @@
+//Country Codes 
 import intlTelInput from "intl-tel-input";
 if (document.querySelector("#mobile_code")) {
   const input = document.querySelector("#mobile_code");
@@ -7,13 +8,14 @@ if (document.querySelector("#mobile_code")) {
       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.4/js/utils.js",
   });
 }
-
+//
 setTimeout(function(){
   $('#message').fadeOut('slow')
 }, 4000)
 
-
-var container = document.getElementsByClassName("otp-input")[0];
+//Move cursor to the next in the OTP input
+if (document.getElementsByClassName("otp-input")[0]){
+  var container = document.getElementsByClassName("otp-input")[0];
 container.onkeyup = function(e) {
     var target = e.srcElement || e.target;
     var maxLength = parseInt(target.attributes["maxlength"].value, 10);
@@ -41,4 +43,5 @@ container.onkeyup = function(e) {
             }
         }
     }
+}
 }

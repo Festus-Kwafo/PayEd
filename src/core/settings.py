@@ -1,7 +1,7 @@
 from pathlib import Path
 import environ 
 from django.contrib.messages import constants as messages
-
+import os
 env = environ.Env()
 environ.Env.read_env()
 
@@ -13,10 +13,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-sy*1ng!l@3m_&p5pl2(_@#pfviy-ah18m6arz#8n5_7q@%9zn%'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = ["*"]
 
@@ -129,7 +129,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #API KEY
-SMS_APIKEY = env('SMS_APIKEY')
+SMS_APIKEY = os.getenv('SMS_APIKEY')
 
 #Messages tags
 MESSAGE_TAGS = {
