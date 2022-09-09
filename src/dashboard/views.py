@@ -32,9 +32,9 @@ class IndexView(View):
                     number = number,
                     otp_number = otp_number
                 )
-            #response = send_otp_sms(number, str(otp_number))
+            response = send_otp_sms(number, str(otp_number))
             sms_model = Sms.objects.get(number= number)
-            #sms_model.status_message = response['message']
+            sms_model.status_message = response['message']
 
             #save number in the session
             request.session['session_number'] = f'{number}'
