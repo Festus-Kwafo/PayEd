@@ -38,8 +38,7 @@ class IndexView(View):
 
             #save number in the session
             request.session['session_number'] = f'{number}'
-            
-            #sms_model.save()
+            sms_model.save()
             return redirect('dashboard:verification')
                 
         else:
