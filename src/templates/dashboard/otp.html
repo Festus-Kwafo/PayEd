@@ -21,7 +21,6 @@
         <div class="wrapper mt-5">  
             {% include '../../templates/includes/alerts.html' %}
             <form action="" method="post">
-                <input type="text" id="1" class="form-control" name="number" maxlength="1" value={{number}} hidden> 
                 {% csrf_token %}
              <div class="input otp-input">
                 <label class="my-2" for="phoneNumber">Enter six -digit code sent to your number</label>
@@ -39,7 +38,7 @@
          </div>
  
          <div class="text-center mt-5 pt-3">
-             <p>Didn't get the code? <a href="{%url 'dashboard:resendOTP' number %}" style="text-decoration: none;">Resend</a></p> 
+             <p>Didn't get the code? <a href="{%url 'dashboard:resendOTP' %}" style="text-decoration: none;">Resend</a></p> 
          </div>
     </div>
     </div>

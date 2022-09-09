@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect 
 from django.views import View
 from django.urls import reverse
@@ -25,21 +26,21 @@ class IndexView(View):
             
             is_number_exists = Sms.objects.filter(number=number).exists()
             if is_number_exists:
-                sms_number = Sms.objects.filter(number=number).update(otp_number=otp_number)
+                sms_number = Sms.objects.filter(number=number).update(otp_number=otp_number, verified=False)
             else:
                 sms_number = Sms.objects.create(
                     number = number,
                     otp_number = otp_number
                 )
-            response = send_otp_sms(number, str(otp_number))
+            #response = send_otp_sms(number, str(otp_number))
             sms_model = Sms.objects.get(number= number)
-            sms_model.status_message = response['message']
-            sms_model.save()
-            context = {
-                'number': number
-            }
+            #sms_model.status_message = response['message']
+
+            #save number in the session
+            request.session['session_number'] = f'{number}'
             
-            return HttpResponseRedirect(reverse('dashboard:verification', kwargs={'number':number}))
+            #sms_model.save()
+            return redirect('dashboard:verification')
                 
         else:
             error_message = get_errors_from_form(forms)
@@ -52,15 +53,12 @@ class IndexView(View):
 class OTPVerification(View):
     template_name = 'templates/dashboard/otp.html'
 
-    def get(self, request, *args, **kwargs):
-        number = kwargs.get('number')
-        context = {
-            'number': number
-        }
-        return render(request, self.template_name, context)
+    def get(self, request):
+
+        return render(request, self.template_name)
         
-    def post(self, request, *args, **kwargs):
-        sms_verify = Sms.objects.get(number = self.kwargs['number'])
+    def post(self, request, ):
+        sms_verify = Sms.objects.get(number = request.session['session_number'])
         otp1 = request.POST.get('otp1') 
         otp2 = request.POST.get('otp2') 
         otp3 = request.POST.get('otp3') 
@@ -73,22 +71,23 @@ class OTPVerification(View):
         otp_input = f'{otp1}{otp2}{otp3}{otp4}{otp5}{otp6}'
         if sms_verify.otp_number == otp_input.strip():
             sms_verify.verified = True
-
             sms_verify.save()
             return redirect('dashboard:service')
+
         else:
             messages.warning(request, "OTP does not match")
-            return HttpResponseRedirect(reverse('dashboard:verification', kwargs={'number': self.kwargs['number']}))
+            return redirect('dashboard:home')
  
  #resend OTP function       
-def resend_OTP(request, **kwargs):
-    number = kwargs.get('number')
+def resend_OTP(request):
+    number = request.session['session_number']
+    print(type(number))
     otp_number = random.randint(100001, 999999)
-    Sms.objects.get(number = number).update(otp_number=otp_number)
+    Sms.objects.filter(number = number).update(otp_number=otp_number)
     response = send_otp_sms(number, str(otp_number))
-    if response['status'] == 'status':
+    if response['status'] == 'success':
         messages.success(request, "OTP Sent successfully")
-        return HttpResponseRedirect(reverse('dashboard:verification', kwargs={'number': kwargs['number']}))
+        return redirect('dashboard:verification')
     else:
         messages.warning(request, "Error Sending sending OTP. Try again later")
         return redirect('dashboard:home')
@@ -97,7 +96,13 @@ class ServiceView(View):
     template_name = 'templates/dashboard/forms.html'
 
     def get(self, request):
-        return render(request, self.template_name)
+        
+        session_number = request.session['session_number']
+        is_number_verified = Sms.objects.filter(number = session_number, verified=True).exists()
+        if is_number_verified:
+            return render(request, self.template_name)
+        else:
+            return HttpResponse("You don't have access to this page")
     
     def post(self, request):
         return redirect('dashboard:transaction')
@@ -106,19 +111,35 @@ class TransactionView(View):
     template_name = "templates/dashboard/transaction.html"
 
     def get(self, request):
-        return render(request, self.template_name)
+        session_number = request.session['session_number']
+        is_number_verified = Sms.objects.filter(number = session_number, verified=True).exists()
+        if is_number_verified:
+            return render(request, self.template_name)
+        else:
+            return HttpResponse("You don't have access to this page")
 
 class ConfirmationView(View):
     template_name = 'templates/dashboard/payment_confirmation.html'
 
     def get(self, request):
-        return render(request, self.template_name)
+        session_number = request.session['session_number']
+        is_number_verified = Sms.objects.filter(number = session_number, verified=True).exists()
+        if is_number_verified:
+            return render(request, self.template_name)
+        else:
+            return HttpResponse("You don't have access to this page")
 
 class TransactionHistoryView(View):
     template_name = 'templates/dashboard/transaction_history.html'
 
     def get(self, request):
-        return render(request, self.template_name)
+        session_number = request.session['session_number']
+        is_number_verified = Sms.objects.filter(number = session_number, verified=True).exists()
+        if is_number_verified:
+            return render(request, self.template_name)
+        else:
+            return HttpResponse("You don't have access to this page")
+
 class DashboardView(View):
     template_name = 'templates/dashboard/dashboard.html'
 
