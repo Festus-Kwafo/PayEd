@@ -136,3 +136,9 @@ MESSAGE_TAGS = {
     messages.WARNING: 'danger',
     50: 'critical',
 }
+
+#sessions 
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_AGE = 60

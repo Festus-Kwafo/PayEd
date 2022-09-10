@@ -39,7 +39,7 @@ class IndexView(View):
             #save number in the session
             request.session['session_number'] = f'{number}'
             
-            #sms_model.save()
+            sms_model.save()
             return redirect('dashboard:verification')
                 
         else:
@@ -58,7 +58,7 @@ class OTPVerification(View):
         return render(request, self.template_name)
         
     def post(self, request, ):
-        sms_verify = Sms.objects.get(number = request.session['session_number'])
+        sms_verify = Sms.objects.get(number = request.session.get('session_number'))
         otp1 = request.POST.get('otp1') 
         otp2 = request.POST.get('otp2') 
         otp3 = request.POST.get('otp3') 
@@ -80,7 +80,7 @@ class OTPVerification(View):
  
  #resend OTP function       
 def resend_OTP(request):
-    number = request.session['session_number']
+    number = request.session.get('session_number')
     print(type(number))
     otp_number = random.randint(100001, 999999)
     Sms.objects.filter(number = number).update(otp_number=otp_number)
@@ -97,12 +97,13 @@ class ServiceView(View):
 
     def get(self, request):
         
-        session_number = request.session['session_number']
+        session_number = request.session.get('session_number')
         is_number_verified = Sms.objects.filter(number = session_number, verified=True).exists()
         if is_number_verified:
             return render(request, self.template_name)
         else:
-            return HttpResponse("You don't have access to this page")
+            messages.warning(request, "Login Required")
+            return redirect('dashboard:home')
     
     def post(self, request):
         return redirect('dashboard:transaction')
@@ -111,12 +112,14 @@ class TransactionView(View):
     template_name = "templates/dashboard/transaction.html"
 
     def get(self, request):
+        request.session['session_number']
         session_number = request.session['session_number']
         is_number_verified = Sms.objects.filter(number = session_number, verified=True).exists()
         if is_number_verified:
             return render(request, self.template_name)
         else:
-            return HttpResponse("You don't have access to this page")
+            messages.warning(request, "Login Required")
+            return redirect('dashboard:home')
 
 class ConfirmationView(View):
     template_name = 'templates/dashboard/payment_confirmation.html'
@@ -125,9 +128,13 @@ class ConfirmationView(View):
         session_number = request.session['session_number']
         is_number_verified = Sms.objects.filter(number = session_number, verified=True).exists()
         if is_number_verified:
+
+
             return render(request, self.template_name)
+
         else:
-            return HttpResponse("You don't have access to this page")
+            messages.warning(request, "Login")
+            return redirect('dashboard:home')
 
 class TransactionHistoryView(View):
     template_name = 'templates/dashboard/transaction_history.html'
@@ -138,7 +145,8 @@ class TransactionHistoryView(View):
         if is_number_verified:
             return render(request, self.template_name)
         else:
-            return HttpResponse("You don't have access to this page")
+            messages.warning(request, "Login")
+            return redirect('dashboard:home')
 
 class DashboardView(View):
     template_name = 'templates/dashboard/dashboard.html'

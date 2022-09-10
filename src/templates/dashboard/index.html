@@ -22,7 +22,6 @@
             {% include '../../templates/includes/alerts.html' %}
             <form action="{%url 'dashboard:home'%}" method="POST">
             {% csrf_token %}
-            
             <div class="input">
                 <label class="my-2" for="phoneNumber">Phone Number</label>
                 <input type="text" id="mobile_code" class="form-control" placeholder="Phone Number" name="number">
