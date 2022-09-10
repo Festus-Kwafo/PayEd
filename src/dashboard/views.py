@@ -131,7 +131,7 @@ class ConfirmationView(View):
             return render(request, self.template_name)
 
         else:
-            messages.warning(request, "Login")
+            messages.warning(request, "Login Required")
             return redirect('dashboard:home')
 
 class TransactionHistoryView(View):
@@ -143,7 +143,7 @@ class TransactionHistoryView(View):
         if is_number_verified:
             return render(request, self.template_name)
         else:
-            messages.warning(request, "Login")
+            messages.warning(request, "Login Required")
             return redirect('dashboard:home')
 
 class DashboardView(View):
