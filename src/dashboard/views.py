@@ -23,7 +23,7 @@ class IndexView(View):
         if forms.is_valid():
             otp_number = random.randint(100001, 999999)
             number = request.POST.get('number')
-            
+
             is_number_exists = Sms.objects.filter(number=number).exists()
             if is_number_exists:
                 sms_number = Sms.objects.filter(number=number).update(otp_number=otp_number, verified=False)
@@ -35,10 +35,8 @@ class IndexView(View):
             response = send_otp_sms(number, str(otp_number))
             sms_model = Sms.objects.get(number= number)
             sms_model.status_message = response['message']
-
             #save number in the session
-            request.session['session_number'] = f'{number}'
-            
+            request.session['session_number'] = f'{number}' 
             sms_model.save()
             return redirect('dashboard:verification')
                 
