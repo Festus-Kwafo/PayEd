@@ -32,12 +32,9 @@ body{
   .navbar-default1 {
       font-family: "Inter", sans-serif;
       transition: all 0.5s ease-in-out;
-      background-color: $slate;
-      padding-top: 20px;
-      padding-bottom: 20px;
+      background-color: #fff;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      //box-shadow: 1px 2px 15px rgba(32, 32, 32, 0.3);
     }
 
     .navbar-default1.navbar-reduce {
