@@ -29,8 +29,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template:
-                "./templates/dashboard/base3.html",
-            filename: "templates/dashboard/base3.html",
+                "./templates/dashboard/dashboard_base.html",
+            filename: "templates/dashboard/dashboard_base.html",
             publicPath: "/static/",
             inject: "body"
         }),

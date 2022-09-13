@@ -1,15 +1,72 @@
 #dashboard{
+  height: calc(100% - 5em);
+
+  .sidebar{
+    height: 90vh;
+    width: sid;
+    position: sticky;
+    background-color: $white;
     margin-top: 3em;
-}
 
-.school{
-    font-size: 1.2em;
-    font-weight: 600;
-}
-.bi-bell{
-    font-size: 1.5em;
-    span{
-        padding: 0.3rem;
+    a{
+      text-decoration: none;
+      color: $black;
     }
+  }
+  .main-section{
+    overflow: hidden !important;
+    margin-left: $sidebar-size;
+    margin-top: 3em;
+  }
+
+  .sidebar-item{
+    margin-left: 2em;
+  
+  }
+  .student-card-i{
+    background-color: rgb(250, 137, 143, 0.5);
+    color: #5E5E5E;
+  }
+  .border{
+    color: $primary;
+    border-radius: 5px;
+  }
+  .card-dashboard{
+    width: 19em;
+    background-color: $white;
+  }
+
+  .active{
+    background-color: $primary;
+    border-radius: 0.5em;
+    color: $white;
+  }
+  .text-muted{
+    color: #5E5E5E;
+  }
+  a{
+    text-decoration: none;
+  }
+  .table-responsive{
+    background-color: $white;
+  }
+
+}
+tbody{
+  .font-13{
+    font-size: 15px;
+  }
+}
+thead{
+  font-size: 2em;
+  
+  span{
+    font-size: 1.5em;
+    color: $black;
+  }
 }
 
+.img_upload{
+  width: 2em;
+  background-color: #5E5E5E;
+}

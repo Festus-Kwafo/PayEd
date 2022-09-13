@@ -20,13 +20,13 @@ git clone https://github.com/Festus-Kwafo/PayEd.git
 ```bash
 cd PayEd/src
 
-py -m venv venv
-call venv/scripts/activate
+python3 -m venv venv
+source venv/bin/activate
 
 pip install -r requirements.txt
 
-py manage.py makemigrations
-py manage.py migrate
+python3 manage.py makemigrations
+python3 manage.py migrate
 ```
 
 Install npm packages for preprocessing static files.

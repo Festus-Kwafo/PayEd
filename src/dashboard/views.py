@@ -146,8 +146,20 @@ class TransactionHistoryView(View):
             messages.warning(request, "Login Required")
             return redirect('dashboard:home')
 
-class DashboardView(View):
-    template_name = 'templates/dashboard/dashboard.html'
+class DashboardOverviewView(View):
+    template_name = 'templates/dashboard/dashboard_overview.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+class DashboardSettingsView(View):
+    template_name = 'templates/dashboard/dashboard_settings.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+        
+class DashboardTransactionView(View):
+    template_name = 'templates/dashboard/dashboard_transaction.html'
 
     def get(self, request):
         return render(request, self.template_name)

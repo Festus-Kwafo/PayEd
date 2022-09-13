@@ -1,0 +1,90 @@
+{%load static%}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="{%static 'images/favicon_io/apple-touch-icon.png'%}">
+    <link rel="icon" type="image/png" sizes="32x32" href=" {%static 'images/favicon_io/favicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'images/favicon_io/favicon-16x16.png'%}">
+    <link rel="manifest" href="{%static 'images/favicon_io/site.webmanifest'%}">
+    <title>{% block page_title %}{% endblock %}</title>
+</head>
+<body class="overflow dashboard">
+  <!-- ======= Header/Navbar ======= -->
+  <nav class="navbar navbar-default1 navbar-trans fixed-top navbar-expand-lg nav-pad">
+    <div class="container">
+      <a class="logo" href="">
+        <img src="{%static 'images/logo/logoPayED2.svg' %}" alt="logo">
+      </a>
+      <p class="text-dark pt-2 ms-3 school">KNUST</p>
+      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+      </div>
+      <!-- Profile -->
+    </div>
+    <div class="collapse navbar-collapse" >
+        <div class="pe-3 border-end">
+            <i class="bi bi-bell font-14 position-relative">
+                <span class="position-absolute top-0 start-100 translate-middle badge  border-light rounded-circle bg-danger p-1"><span class="visually-hidden">unread messages</span></span>
+            </i>
+        </div>
+        <div class="profile row ms-3">
+            <div class="col-4">
+                <img src="{%static 'images/profile.png'%}" alt="avatar" class="rounded-circle img-fluid py-3" style="width: 40px"/>
+            </div>
+
+            <div class="col-8">
+                <div class="row py-2">
+                    <span>KNUST</span>
+                    <span class="font-12">Owner</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </nav>
+  <!-- End Header/Navbar -->
+<!-- Sidebar -->
+<section id="dashboard">
+    <div class="row ">
+        <div class="position-relative sidebar position-fixed col-2">
+            <a href="{%url 'dashboard:dashboard_overview' %}">
+                <div class="ps-3 py-3 mt-5 sidebar-item {%if '/dashboard' == request.path%} active {%endif%} font-14"><i
+                        class="bi bi-grid-1x2-fill pe-2"></i>Overview</div>
+            </a>
+            <a href="{%url 'dashboard:dashboard_transaction' %}">
+                <div class="ps-3 py-3 mt-3 sidebar-item {%if '/dashboard/transaction' == request.path%} active {%endif%} font-14"><i class="bi bi-view-list pe-2"></i> Transactions
+                </div>
+            </a>
+            <a href="{%url 'dashboard:dashboard_settings' %}">
+                <div class="ps-3 py-3 mt-3 sidebar-item {%if '/dashboard/settings' == request.path%} active {%endif%} font-14"><i class="bi bi-gear pe-2"></i> Settings
+                </div>
+            </a>
+
+            <div class="position-absolute bottom-0 end-0 w-100">
+                <a href="http://">
+                    <div class="ps-3 py-3 mt-5 sidebar-item  font-14"><i class="bi bi-question-circle pe-2"></i>Help
+                    </div> 
+                </a>
+                <a href="http://">
+                    <div class="ps-3 py-3 sidebar-item  font-14"><i class="bi bi-box-arrow-left pe-2"></i>Log out
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="main-section col-10">
+            <section class="mt-5">
+                {% block content %}
+
+                {% endblock %}
+            </section>
+
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>

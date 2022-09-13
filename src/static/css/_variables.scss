@@ -6,11 +6,24 @@ $black: #000;
 $white: #fff;
 $primary: #0052B4;
 $secondary: #FAFAFA;
+
+$background: rgb(243, 243, 243);
+$background-light: rgb(255, 255, 255);
+
 $accent: #FFA012;
+$success: #045F04;
+$black: #000;
 $footer-color: #1E3E66;
 $slate: #FAFAFA;
 $box-shadow: 0.1rem .2rem 0.5rem 0.2rem rgba($black, .15);
+
 // $input-border-color: 0;
+$black: #000;
+$white: #fff;
+$sidebar-size: 17em;
+$nav-height: 4em;
+
+
 
 .font-14{
  font-size: 20px; 
@@ -22,16 +35,15 @@ $box-shadow: 0.1rem .2rem 0.5rem 0.2rem rgba($black, .15);
     font-weight: 300;
 }
 
-
-
-
 //bootstrap Changes
 $dropdown-min-width: 1.2rem;
 $btn-padding-x: 2em;
 $btn-border-radius: 3;
 $input-border-color: rgba(0, 82, 180, 0.58);
 $input-border-radius: 3;
-// $pagination-active-bg: $black;
+$pagination-active-bg: $black;
 $modal-footer-border-color: none;
 $modal-content-border-radius: 3;
+
+$table-th-font-weight: 600;
 

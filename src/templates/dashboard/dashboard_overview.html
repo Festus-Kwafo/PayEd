@@ -1,0 +1,285 @@
+{% extends '../../dist/templates/dashboard/dashboard_base.html' %}
+{% block page_title %}PayEd{% endblock %}
+{% load static %}
+
+{% block content %}
+<!-- Dashboard -->
+<div class=" container row d-flex justify-content-between">
+    <div class="col-lg-3 col-sm-6 col-12 border card-dashboard text-center pt-3">
+        <div class="icon icon-shape student-card-i text-lg rounded-circle my-3 mt-3">
+            <i class="bi bi-mortarboard"></i>
+        </div>
+        <h3 class="students-num ">313</h3>
+        <h6 class="my-4 text-muted">Number of students</h6>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-12 border card-dashboard text-center pt-3">
+        <div class="icon icon-shape student-card-i text-lg rounded-circle my-3 mt-3"
+            style="background-color: rgb(0, 82, 180, 0.2);">
+            <i class="bi bi-mortarboard"></i>
+        </div>
+        <h3 class="students-num ">100</h3>
+        <h6 class="my-4 text-muted">Number of Application Fee Paid</h6>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-12 border card-dashboard text-center pt-3">
+        <div class="icon icon-shape student-card-i text-lg rounded-circle my-3 mt-3"
+            style="background-color: rgb(233, 1, 253, 0.2);">
+            <i class="bi bi-wallet2"></i>
+        </div>
+        <h3 class="students-num ">GHS 15,000</h3>
+        <h6 class="my-4 text-muted">Total Amount of School Fees</h6>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-12 border card-dashboard text-center pt-3">
+        <div class="icon icon-shape student-card-i text-lg rounded-circle my-3 mt-3"
+            style="background-color: rgb(255, 208, 8, 0.2);">
+            <i class="bi bi-wallet2"></i>
+        </div>
+        <h3 class="students-num ">GHS 12,000</h3>
+        <h6 class="my-4 text-muted">Total Amount of Application Fees</h6>
+    </div>
+</div>
+
+<div class="container row d-flex justify-content-between mt-5 font-14">
+    <div class="col-lg-3 col-sm-6 col-12">
+        <span>Recent Transactions</span>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-12 text-end">
+        <a href="http://">
+            <span>View All <i class="bi bi-arrow-right"></i></span>
+        </a>
+    </div>
+</div>
+<div class="container row">
+    <div class="col-lg-5 mt-3">
+        <div class="row">
+            <div class="col p-0">
+                <span class="ms-3 pe-2">From</span>
+            <button class="btn p-1 border text-dark">        
+                <i class="bi bi-calendar4-week p-2"></i>
+                <input type="date" name="" id="">
+            </button>
+            </div>
+            <div class="col p-0">
+                <span class="pe-2">To</span>
+                <button class="btn p-1 border text-dark">        
+                    <i class="bi bi-calendar4-week p-2"></i>
+                    <input type="date" name="" id="">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 mt-3">
+        <div class="row d-flex justify-content-center ">
+            <div class="col p-0">
+                <button class="btn p-2 border text-dark">School Fees</button>   
+            </div>
+            <div class="col p-0">
+                <button class="btn p-2 border text-dark">Application Fees</button>               
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-4 mt-3 text-end" >
+        <button class="btn p-1 border text-dark "> 
+            <i class="bi bi-search p-2"></i>
+            <input type="text" name="search" id="">
+        </button>
+    </div>
+</div>
+<div class="container mx-3 mt-3 me-5">
+    <div class="table-responsive">
+        <table class="table table-hover table-nowrap">
+            <thead class="">
+                <tr>
+                    <th scope="col"><span>Student ID</span></th>
+                    <th scope="col"><span>Date</span></th>
+                    <th scope="col"><span>Transaction ID</span></th>
+                    <th scope="col"><span>Amount Paid</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="py-2">
+                                    <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2">
+                            
+                                </div>
+                                </div>
+                
+                            <div class="col-9">
+                                <div class="row py-2">
+                                    <a class="text-heading font-semibold" href="#">
+                                        <div class="font-13" >Robert Fox</div>
+                                        <div class="font-13">10821161</div>
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="text-muted font-13"> Aug 8, 2022, at 10:54:28 AM</span>
+                    </td>
+                    <td>
+                        <span class="text-muted font-13">_f2usNYKcv</span>
+                    </td>
+                    <td>
+                        <span class="font-13">GHS 1524.77</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="py-2">
+                                    <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2">
+                            
+                                </div>
+                                </div>
+                
+                            <div class="col-9">
+                                <div class="row py-2">
+                                    <a class="text-heading font-semibold" href="#">
+                                        <div class="font-13" >Robert Fox</div>
+                                        <div class="font-13">10821161</div>
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="text-muted font-13"> Aug 8, 2022, at 10:54:28 AM</span>
+                    </td>
+                    <td>
+                        <span class="text-muted font-13">_f2usNYKcv</span>
+                    </td>
+                    <td>
+                        <span class="font-13">GHS 1524.77</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="py-2">
+                                    <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2">
+                            
+                                </div>
+                                </div>
+                
+                            <div class="col-9">
+                                <div class="row py-2">
+                                    <a class="text-heading font-semibold" href="#">
+                                        <div class="font-13" >Robert Fox</div>
+                                        <div class="font-13">10821161</div>
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="text-muted font-13"> Aug 8, 2022, at 10:54:28 AM</span>
+                    </td>
+                    <td>
+                        <span class="text-muted font-13">_f2usNYKcv</span>
+                    </td>
+                    <td>
+                        <span class="font-13">GHS 1524.77</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="py-2">
+                                    <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2">
+                            
+                                </div>
+                                </div>
+                
+                            <div class="col-9">
+                                <div class="row py-2">
+                                    <a class="text-heading font-semibold" href="#">
+                                        <div class="font-13" >Robert Fox</div>
+                                        <div class="font-13">10821161</div>
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="text-muted font-13"> Aug 8, 2022, at 10:54:28 AM</span>
+                    </td>
+                    <td>
+                        <span class="text-muted font-13">_f2usNYKcv</span>
+                    </td>
+                    <td>
+                        <span class="font-13">GHS 1524.77</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="py-2">
+                                    <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2">
+                            
+                                </div>
+                                </div>
+                
+                            <div class="col-9">
+                                <div class="row py-2">
+                                    <a class="text-heading font-semibold" href="#">
+                                        <div class="font-13" >Robert Fox</div>
+                                        <div class="font-13">10821161</div>
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="text-muted font-13"> Aug 8, 2022, at 10:54:28 AM</span>
+                    </td>
+                    <td>
+                        <span class="text-muted font-13">_f2usNYKcv</span>
+                    </td>
+                    <td>
+                        <span class="font-13">GHS 1524.77</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="py-2">
+                                    <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2">
+                            
+                                </div>
+                                </div>
+                
+                            <div class="col-9">
+                                <div class="row py-2">
+                                    <a class="text-heading font-semibold" href="#">
+                                        <div class="font-13" >Robert Fox</div>
+                                        <div class="font-13">10821161</div>
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="text-muted font-13"> Aug 8, 2022, at 10:54:28 AM</span>
+                    </td>
+                    <td>
+                        <span class="text-muted font-13">_f2usNYKcv</span>
+                    </td>
+                    <td>
+                        <span class="font-13">GHS 1524.77</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{%endblock%}

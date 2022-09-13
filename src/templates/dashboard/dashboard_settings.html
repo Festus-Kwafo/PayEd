@@ -1,0 +1,31 @@
+{% extends '../../dist/templates/dashboard/dashboard_base.html' %}
+{% block page_title %}PayEd{% endblock %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h5>Account Settings</h5>
+    <span>Here you can edit your profile, change your display picture and other school details on your account.</span>
+
+    <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-5">
+            <div class="row">
+                <div class="col-6 position-relative">
+                    <img src="{%static 'images/profile.png'%}" alt="profile_upload" class="rounded-circle img-fluid py-3 float-end" style="width: 120px"/>    
+                    <i class="bi bi-cloud-upload position-absolute bottom-0 font-14 start-100"></i>                
+                </div>
+                <div class="col-6 py-3">
+                    <div class="row text-center ">
+                        <button style="background-color: #DADDDF;" class="btn w-75  m-auto border text-dark">Upload Photo</button>
+                        <span class="text-muted">At least 256 x 256 PNG or JPG </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+
+{%endblock%}
