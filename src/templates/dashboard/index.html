@@ -15,6 +15,7 @@
         </div>
     <div class="login col-lg-6">
         <div class="text-center mt-5">
+    
             <h2 class="heading">LOGIN</h2>
             <p>Completed a transaction before? Login to access your transaction history.</p>
         </div>
@@ -24,7 +25,7 @@
             {% csrf_token %}
             <div class="input">
                 <label class="my-2" for="phoneNumber">Phone Number</label>
-                <input type="text" id="mobile_code" class="form-control" placeholder="Phone Number" name="number">
+                <input type="text" id="mobile_code" class="form-control" placeholder="Phone Number" minlength="10" name="number">
                 <button class=" btn btn-primary float-end my-4">Submit</button>
             </div>
            </form> 

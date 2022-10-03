@@ -11,12 +11,11 @@ def get_errors_from_form(forms):
 
 def send_otp_sms(receiver, otp_number):
     endPoint = 'https://api.mnotify.com/api/sms/quick'
-    #apiKey = 'K0SLuMX4M2SIL1FDVet05b8iCCJs15FM6xxAkuE6wwPiy'
     apiKey = SMS_APIKEY
     data = {
    'recipient[]': [receiver],
    'sender': 'PayEd',
-   'message': f'{otp_number} is PayEd verifaction Code. Don\'t share this code',
+   'message': f'{otp_number} is PayEd your verifaction code. Don\'t share this code',
    'is_schedule': False,
             }
     url = endPoint + '?key=' + str(apiKey)

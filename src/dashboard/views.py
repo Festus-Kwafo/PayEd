@@ -21,9 +21,9 @@ class IndexView(View):
         forms = SmsForm(request.POST)
              
         if forms.is_valid():
+            #get the number from the input  and store in the database if does not exist
             otp_number = random.randint(100001, 999999)
             number = request.POST.get('number')
-
             is_number_exists = Sms.objects.filter(number=number).exists()
             if is_number_exists:
                 sms_number = Sms.objects.filter(number=number).update(otp_number=otp_number, verified=False)
@@ -31,11 +31,13 @@ class IndexView(View):
                 sms_number = Sms.objects.create(
                     number = number,
                     otp_number = otp_number
+
                 )
+            #send otp number to the number 
             response = send_otp_sms(number, str(otp_number))
             sms_model = Sms.objects.get(number= number)
             sms_model.status_message = response['message']
-            #save number in the session
+            #store number in the session
             request.session['session_number'] = f'{number}' 
             sms_model.save()
             return redirect('dashboard:verification')
@@ -55,8 +57,14 @@ class OTPVerification(View):
 
         return render(request, self.template_name)
         
-    def post(self, request, ):
+    def post(self, request):
+        #get the otp number entered by the user from the input
         sms_verify = Sms.objects.get(number = request.session.get('session_number'))
+
+        #check if the number still exist in the session
+        if not sms_verify:
+           return redirect('dashboard:home')
+
         otp1 = request.POST.get('otp1') 
         otp2 = request.POST.get('otp2') 
         otp3 = request.POST.get('otp3') 
@@ -94,7 +102,6 @@ class ServiceView(View):
     template_name = 'templates/dashboard/forms.html'
 
     def get(self, request):
-        
         session_number = request.session.get('session_number')
         is_number_verified = Sms.objects.filter(number = session_number, verified=True).exists()
         if is_number_verified:
@@ -121,7 +128,6 @@ class TransactionView(View):
 
 class ConfirmationView(View):
     template_name = 'templates/dashboard/payment_confirmation.html'
-
     def get(self, request):
         session_number = request.session['session_number']
         is_number_verified = Sms.objects.filter(number = session_number, verified=True).exists()

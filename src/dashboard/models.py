@@ -24,3 +24,9 @@ class Sms(models.Model):
     
     def __str__(self):
         return self.message
+
+class School(models.Model):
+    name = models.CharField(max_length = 255, null=True, blank= True)
+
+class Service(models.Model):
+    pass
